@@ -1,0 +1,2862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Xoro Telecom Services | Customer Experience & Business Process Services</title>
+
+<meta name="description"
+content="Xoro Telecom Services provides customer experience, customer support, chat, email, technical support, back-office and flexible workforce solutions from Bengaluru, India.">
+
+<style>
+
+/* =========================================================
+   XORO TELECOM SERVICES
+   SINGLE FILE WEBSITE
+   HTML + CSS + JAVASCRIPT
+========================================================= */
+
+:root{
+    --navy:#141414;
+    --navy2:#202020;
+    --blue:#626262;
+    --cyan:#a5a5a5;
+    --white:#ffffff;
+    --ink:#202020;
+    --muted:#777777;
+    --line:#e5e5e5;
+    --soft:#f8f8f8;
+    --success:#818181;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#fff;
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
+}
+
+/* =========================
+   LOADER
+========================= */
+
+#loader{
+    position:fixed;
+    inset:0;
+    background:var(--navy);
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.6s;
+}
+
+.loader-logo{
+    font-size:55px;
+    font-weight:900;
+    letter-spacing:6px;
+    color:white;
+    animation:logoPulse 1.5s infinite;
+}
+
+.loader-logo span{
+    color:var(--cyan);
+}
+
+@keyframes logoPulse{
+    0%,100%{opacity:.5;transform:scale(.97)}
+    50%{opacity:1;transform:scale(1)}
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:78px;
+    z-index:1000;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 6%;
+
+    background:rgba(20, 20, 20, .92);
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255, 255, 255, .08);
+}
+
+.logo{
+    font-size:29px;
+    font-weight:900;
+    letter-spacing:3px;
+    color:white;
+}
+
+.logo span{
+    color:var(--cyan);
+}
+
+.logo small{
+    display:block;
+    font-size:7px;
+    letter-spacing:3px;
+    color:#c3c3c3;
+    margin-top:-4px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-links a{
+    color:#e7e7e7;
+    font-size:13px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--cyan);
+}
+
+.nav-cta{
+    background:var(--blue);
+    padding:11px 17px;
+    border-radius:9px;
+}
+
+.menu{
+    display:none;
+    background:none;
+    border:0;
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    padding:150px 7% 90px;
+
+    background:
+        radial-gradient(circle at 80% 15%,#474747 0,#1a1a1a 40%,#101010 100%);
+
+    color:white;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-grid{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:70px;
+    align-items:center;
+}
+
+.hero h1{
+    font-size:clamp(45px,6vw,78px);
+    line-height:1.03;
+    letter-spacing:-4px;
+    margin-bottom:25px;
+
+    animation:heroText 1s ease forwards;
+}
+
+.hero h1 span{
+    color:var(--cyan);
+}
+
+.hero p{
+    max-width:650px;
+    color:#d5d5d5;
+    font-size:17px;
+}
+
+.eyebrow{
+    color:var(--blue);
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:2px;
+    margin-bottom:12px;
+    display:inline-block;
+}
+
+.hero .eyebrow{
+    color:#ababab;
+}
+
+@keyframes heroText{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.buttons{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin:30px 0;
+}
+
+.btn{
+    border:0;
+    padding:14px 21px;
+    border-radius:10px;
+    font-weight:800;
+    cursor:pointer;
+    display:inline-block;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.btn-primary{
+    background:var(--blue);
+    color:white;
+    box-shadow:0 10px 30px rgba(98, 98, 98, .3);
+}
+
+.btn-outline{
+    border:1px solid #797979;
+    color:white;
+    background:transparent;
+}
+
+.hero-points{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    color:#c8c8c8;
+    font-size:12px;
+}
+
+/* =========================
+   HERO GRAPHIC
+========================= */
+
+.hero-visual{
+    height:450px;
+    border-radius:25px;
+
+    position:relative;
+    overflow:hidden;
+
+    border:1px solid #474747;
+
+    background:
+        linear-gradient(145deg,#333333,#141414);
+
+    box-shadow:0 30px 70px rgba(0, 0, 0, .35);
+}
+
+.hero-visual:before{
+    content:"";
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    right:-100px;
+    top:-100px;
+
+    background:#7b7b7b;
+    filter:blur(100px);
+    opacity:.25;
+
+    animation:floatGlow 5s infinite alternate;
+}
+
+@keyframes floatGlow{
+    from{transform:translate(0,0)}
+    to{transform:translate(-50px,60px)}
+}
+
+.dashboard{
+    position:absolute;
+    left:10%;
+    right:10%;
+    top:12%;
+    bottom:10%;
+
+    background:#1c1c1c;
+
+    border:1px solid #5b5b5b;
+    border-radius:18px;
+
+    padding:20px;
+}
+
+.dashboard-header{
+    display:flex;
+    justify-content:space-between;
+    color:#e9e9e9;
+    font-size:12px;
+}
+
+.live{
+    color:#aeaeae;
+}
+
+.chart{
+    height:180px;
+
+    display:flex;
+    align-items:flex-end;
+
+    gap:8px;
+
+    margin-top:35px;
+}
+
+.chart span{
+    flex:1;
+    background:linear-gradient(#aaaaaa,#626262);
+    border-radius:5px 5px 0 0;
+
+    animation:chartGrow 1.5s ease forwards;
+    transform-origin:bottom;
+}
+
+@keyframes chartGrow{
+    from{transform:scaleY(0)}
+    to{transform:scaleY(1)}
+}
+
+.dashboard-bottom{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-top:25px;
+}
+
+.dashboard-bottom div{
+    height:45px;
+    border-radius:8px;
+    background:#292929;
+    border:1px solid #414141;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    background:var(--line);
+    gap:1px;
+}
+
+.stats div{
+    background:white;
+    text-align:center;
+    padding:30px;
+}
+
+.stats strong{
+    display:block;
+    font-size:27px;
+}
+
+.stats span{
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section{
+    padding:100px 7%;
+}
+
+.container{
+    max-width:1150px;
+    margin:auto;
+}
+
+.soft{
+    background:var(--soft);
+}
+
+.section-title{
+    max-width:780px;
+    text-align:center;
+    margin:0 auto 50px;
+}
+
+.section-title h2{
+    font-size:clamp(34px,5vw,55px);
+    line-height:1.1;
+    letter-spacing:-2px;
+    margin-bottom:15px;
+}
+
+.section-title p{
+    color:var(--muted);
+}
+
+.split{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+}
+
+.split h2{
+    font-size:clamp(35px,4vw,53px);
+    line-height:1.1;
+    letter-spacing:-2px;
+}
+
+.split p{
+    color:var(--muted);
+    margin-bottom:18px;
+}
+
+.pills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.pill{
+    background:#f2f2f2;
+    color:var(--blue);
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:800;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:30px;
+
+    transition:.3s;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.card:before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:3px;
+    background:linear-gradient(90deg,var(--blue),var(--cyan));
+
+    transform:scaleX(0);
+    transform-origin:left;
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 50px rgba(52, 52, 52, .12);
+}
+
+.card:hover:before{
+    transform:scaleX(1);
+}
+
+.card-icon{
+    font-size:30px;
+    color:var(--blue);
+}
+
+.card h3{
+    margin:10px 0 7px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.card-link{
+    color:var(--blue);
+    font-size:12px;
+    font-weight:900;
+    display:inline-block;
+    margin-top:15px;
+}
+
+/* =========================
+   INDUSTRIES
+========================= */
+
+.industry-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    border-left:1px solid var(--line);
+    border-top:1px solid var(--line);
+}
+
+.industry{
+    padding:30px;
+
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+
+    transition:.3s;
+}
+
+.industry:hover{
+    background:#f9f9f9;
+}
+
+.industry-number{
+    color:var(--blue);
+    font-weight:900;
+    font-size:11px;
+}
+
+.industry h3{
+    margin:9px 0;
+}
+
+.industry p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* =========================
+   DARK SECTION
+========================= */
+
+.dark{
+    background:var(--navy);
+    color:white;
+    padding:100px 7%;
+}
+
+.dark p{
+    color:#c7c7c7;
+}
+
+.flow{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:40px;
+}
+
+.flow span{
+    padding:12px 17px;
+    border:1px solid #555555;
+    border-radius:30px;
+    font-size:12px;
+
+    animation:flowPulse 2s infinite;
+}
+
+.flow b{
+    color:#aaaaaa;
+}
+
+@keyframes flowPulse{
+    0%,100%{box-shadow:0 0 0 transparent}
+    50%{box-shadow:0 0 20px rgba(165, 165, 165, .2)}
+}
+
+/* =========================
+   PROCESS
+========================= */
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:15px;
+}
+
+.step{
+    border-top:3px solid var(--blue);
+    padding:20px 10px;
+}
+
+.step strong{
+    font-size:24px;
+    color:var(--blue);
+}
+
+.step h3{
+    margin:5px 0;
+}
+
+.step p{
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* =========================
+   CAREERS
+========================= */
+
+.jobs{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.job{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:17px;
+    padding:25px;
+
+    transition:.3s;
+}
+
+.job:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 40px rgba(0, 0, 0, .08);
+}
+
+.job h3{
+    margin-bottom:5px;
+}
+
+.job-meta{
+    color:var(--blue);
+    font-size:12px;
+    font-weight:800;
+}
+
+.job p{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:10px;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:60px;
+}
+
+.contact-info{
+    margin-top:30px;
+    display:grid;
+    gap:5px;
+}
+
+.contact-info b{
+    color:var(--blue);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.contact-info a{
+    margin-bottom:15px;
+}
+
+.form{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.form label{
+    font-size:12px;
+    font-weight:800;
+}
+
+.form input,
+.form select,
+.form textarea{
+    width:100%;
+    margin-top:6px;
+
+    padding:13px;
+
+    border:1px solid #dcdcdc;
+    border-radius:9px;
+
+    outline:none;
+    font-size:14px;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus{
+    border-color:var(--blue);
+    box-shadow:0 0 0 3px rgba(98, 98, 98, .1);
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+.form-message{
+    display:none;
+    padding:18px;
+    border-radius:12px;
+    background:#fafafa;
+    color:var(--success);
+    font-size:13px;
+}
+
+[data-submit-message]{
+    color:var(--muted);
+    font-size:13px;
+}
+
+[data-submit-message][hidden]{
+    display:none;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+
+    background:rgba(9, 9, 9, .78);
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    z-index:3000;
+
+    padding:20px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    width:min(850px,100%);
+    max-height:90vh;
+    overflow:auto;
+
+    background:white;
+    border-radius:20px;
+
+    padding:35px;
+
+    position:relative;
+
+    animation:modalIn .35s ease;
+}
+
+@keyframes modalIn{
+    from{
+        opacity:0;
+        transform:translateY(30px) scale(.97);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.close{
+    position:absolute;
+    right:20px;
+    top:15px;
+
+    border:0;
+    background:#f3f3f3;
+
+    width:40px;
+    height:40px;
+
+    border-radius:50%;
+
+    font-size:20px;
+    cursor:pointer;
+}
+
+.modal-box h2{
+    font-size:38px;
+    line-height:1.1;
+    margin-bottom:10px;
+}
+
+.modal-box p{
+    color:var(--muted);
+}
+
+.modal-content{
+    margin-top:25px;
+}
+
+.detail-list{
+    list-style:none;
+    margin:20px 0;
+}
+
+.detail-list li{
+    padding:10px 0;
+    border-bottom:1px solid var(--line);
+}
+
+.detail-list li:before{
+    content:"✓";
+    color:var(--blue);
+    font-weight:900;
+    margin-right:10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#101010;
+    color:#b1b1b1;
+    padding:60px 7% 20px;
+}
+
+.footer-grid{
+    max-width:1150px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1.4fr;
+    gap:40px;
+}
+
+.footer-logo{
+    font-size:30px;
+    font-weight:900;
+    color:white;
+    letter-spacing:3px;
+}
+
+.footer-logo span{
+    color:var(--cyan);
+}
+
+.footer-col{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+
+    font-size:12px;
+}
+
+.footer-col b{
+    color:white;
+    margin-bottom:5px;
+}
+
+.footer-col a:hover{
+    color:white;
+}
+
+.copyright{
+    max-width:1150px;
+    margin:40px auto 0;
+
+    padding-top:18px;
+
+    border-top:1px solid #2d2d2d;
+
+    display:flex;
+    justify-content:space-between;
+
+    font-size:11px;
+}
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:950px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .navbar.open .nav-links{
+        display:flex;
+
+        position:absolute;
+        top:78px;
+        left:0;
+        right:0;
+
+        background:var(--navy);
+
+        padding:25px;
+
+        flex-direction:column;
+    }
+
+    .hero-grid,
+    .split,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cards,
+    .industry-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .steps{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .hero{
+        padding-left:5%;
+        padding-right:5%;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+    .hero-visual{
+        height:350px;
+    }
+
+    .section,
+    .dark{
+        padding:70px 5%;
+    }
+
+    .cards,
+    .industry-grid,
+    .steps,
+    .stats,
+    .jobs,
+    .form,
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .copyright{
+        display:block;
+    }
+
+    .otp-controls{
+        grid-template-columns:1fr;
+    }
+
+    .copyright span{
+        display:block;
+        margin-top:8px;
+    }
+
+    .modal-box{
+        padding:25px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+    <div class="loader-logo">
+        X<span>O</span>RO
+    </div>
+</div>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header class="navbar">
+
+    <a href="#home" class="logo">
+        XORO<span>.</span>
+        <small>TELECOM SERVICES</small>
+    </a>
+
+    <button class="menu" id="menuButton">
+        ☰
+    </button>
+
+    <nav class="nav-links">
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#services">Services</a>
+
+        <a href="#industries">Industries</a>
+
+        <a href="#process">How We Work</a>
+
+        <a href="#careers">Careers</a>
+
+        <a href="#contact" class="nav-cta">
+            Partner With Us →
+        </a>
+
+    </nav>
+
+</header>
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-grid">
+
+        <div>
+
+            <span class="eyebrow">
+                BENGALURU • INDIA • B2B OPERATIONS
+            </span>
+
+            <h1>
+                Customer Experience.
+                <br>
+                <span>Powered by People.</span>
+                <br>
+                Built for Business.
+            </h1>
+
+            <p>
+                Xoro Telecom Services provides professional customer
+                support, digital support, back-office operations and
+                flexible workforce solutions for growing businesses.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#contact" class="btn btn-primary">
+                    Partner With Us →
+                </a>
+
+                <a href="#services" class="btn btn-outline">
+                    Explore Services ↓
+                </a>
+
+            </div>
+
+            <div class="hero-points">
+
+                <span>✓ Work From Office</span>
+
+                <span>✓ Work From Home</span>
+
+                <span>✓ Hybrid Operations</span>
+
+            </div>
+
+        </div>
+
+        <!-- ANIMATED DASHBOARD -->
+
+        <div class="hero-visual">
+
+            <div class="dashboard">
+
+                <div class="dashboard-header">
+
+                    <b>XORO OPERATIONS</b>
+
+                    <span class="live">
+                        ● LIVE WORKFLOW
+                    </span>
+
+                </div>
+
+                <div class="chart">
+
+                    <span style="height:45px"></span>
+                    <span style="height:80px"></span>
+                    <span style="height:60px"></span>
+                    <span style="height:110px"></span>
+                    <span style="height:80px"></span>
+                    <span style="height:130px"></span>
+                    <span style="height:95px"></span>
+                    <span style="height:145px"></span>
+
+                </div>
+
+                <div class="dashboard-bottom">
+
+                    <div></div>
+                    <div></div>
+                    <div></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     STATS
+========================= -->
+
+<section class="stats">
+
+    <div>
+        <strong>24/7*</strong>
+        <span>Operational Coverage</span>
+    </div>
+
+    <div>
+        <strong>WFO + WFH</strong>
+        <span>Flexible Delivery</span>
+    </div>
+
+    <div>
+        <strong>Multi-Channel</strong>
+        <span>Voice, Chat & Email</span>
+    </div>
+
+    <div>
+        <strong>Scalable</strong>
+        <span>Teams & Workflows</span>
+    </div>
+
+</section>
+
+<p style="text-align:center;font-size:11px;color:#878787;margin:8px;">
+    *Coverage depends on the client engagement and agreed operating model.
+</p>
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="section reveal" id="about">
+
+    <div class="container split">
+
+        <div>
+
+            <span class="eyebrow">
+                ABOUT XORO
+            </span>
+
+            <h2>
+                Customer operations
+                you can rely on.
+            </h2>
+
+        </div>
+
+        <div>
+
+            <p>
+                Xoro Telecom Services is a Bengaluru-based
+                customer operations and business-process services
+                company focused on helping businesses deliver
+                faster, smarter and more consistent customer
+                experiences.
+            </p>
+
+            <p>
+                We combine trained professionals, structured
+                workflows and technology-enabled operations
+                across customer support, onboarding, back-office
+                processing and issue resolution.
+            </p>
+
+            <div class="pills">
+
+                <span class="pill">People</span>
+
+                <span class="pill">Process</span>
+
+                <span class="pill">Technology</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     SERVICES
+========================= -->
+
+<section class="section soft reveal" id="services">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                OUR SERVICES
+            </span>
+
+            <h2>
+                Complete customer operations
+                for your business.
+            </h2>
+
+            <p>
+                Click any service to explore what Xoro can provide.
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <!-- SERVICE 1 -->
+
+            <article class="card">
+
+                <div class="card-icon">◉</div>
+
+                <h3>
+                    Customer Support
+                </h3>
+
+                <p>
+                    Professional customer assistance,
+                    issue resolution and escalation management.
+                </p>
+
+                <button
+                    class="btn btn-primary"
+                    onclick="openService('customer')">
+
+                    Explore Service →
+
+                </button>
+
+            </article>
+
+            <!-- SERVICE 2 -->
+
+            <article class="card">
+
+                <div class="card-icon">▣</div>
+
+                <h3>
+                    Chat & Email Support
+                </h3>
+
+                <p>
+                    Digital customer communication through
+                    chat, email and ticketing.
+                </p>
+
+                <button
+                    class="btn btn-primary"
+                    onclick="openService('chat')">
+
+                    Explore Service →
+
+                </button>
+
+            </article>
+
+            <!-- SERVICE 3 -->
+
+            <article class="card">
+
+                <div class="card-icon">◆</div>
+
+                <h3>
+                    Back-Office Operations
+                </h3>
+
+                <p>
+                    Data processing, documentation,
+                    verification and operational support.
+                </p>
+
+                <button
+                    class="btn btn-primary"
+                    onclick="openService('backoffice')">
+
+                    Explore Service →
+
+                </button>
+
+            </article>
+
+            <!-- SERVICE 4 -->
+
+            <article class="card">
+
+                <div class="card-icon">⚙</div>
+
+                <h3>
+                    Technical Support
+                </h3>
+
+                <p>
+                    First-level product, platform and
+                    technical customer assistance.
+                </p>
+
+                <button
+                    class="btn btn-primary"
+                    onclick="openService('technical')">
+
+                    Explore Service →
+
+                </button>
+
+            </article>
+
+            <!-- SERVICE 5 -->
+
+            <article class="card">
+
+                <div class="card-icon">◎</div>
+
+                <h3>
+                    Customer Onboarding
+                </h3>
+
+                <p>
+                    Structured assistance through documentation,
+                    verification and activation.
+                </p>
+
+                <button
+                    class="btn btn-primary"
+                    onclick="openService('onboarding')">
+
+                    Explore Service →
+
+                </button>
+
+            </article>
+
+            <!-- SERVICE 6 -->
+
+            <article class="card">
+
+                <div class="card-icon">⌂</div>
+
+                <h3>
+                    Remote Workforce
+                </h3>
+
+                <p>
+                    Work-from-office, work-from-home and
+                    hybrid operational teams.
+                </p>
+
+                <button
+                    class="btn btn-primary"
+                    onclick="openService('remote')">
+
+                    Explore Service →
+
+                </button>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     INDUSTRIES
+========================= -->
+
+<section class="section reveal" id="industries">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                INDUSTRIES
+            </span>
+
+            <h2>
+                Built for high-trust,
+                high-growth businesses.
+            </h2>
+
+        </div>
+
+        <div class="industry-grid">
+
+            <div class="industry">
+
+                <span class="industry-number">01</span>
+
+                <h3>
+                    Trading & Stock Broking
+                </h3>
+
+                <p>
+                    Customer support workflows for brokerage
+                    and trading businesses.
+                </p>
+
+            </div>
+
+            <div class="industry">
+
+                <span class="industry-number">02</span>
+
+                <h3>
+                    Fintech
+                </h3>
+
+                <p>
+                    Customer operations for technology-driven
+                    financial products.
+                </p>
+
+            </div>
+
+            <div class="industry">
+
+                <span class="industry-number">03</span>
+
+                <h3>
+                    Banking & Payments
+                </h3>
+
+                <p>
+                    Support and operational assistance for
+                    digital financial services.
+                </p>
+
+            </div>
+
+            <div class="industry">
+
+                <span class="industry-number">04</span>
+
+                <h3>
+                    Insurance
+                </h3>
+
+                <p>
+                    Customer service and structured
+                    communication workflows.
+                </p>
+
+            </div>
+
+            <div class="industry">
+
+                <span class="industry-number">05</span>
+
+                <h3>
+                    E-commerce
+                </h3>
+
+                <p>
+                    Order support, customer queries and
+                    issue resolution.
+                </p>
+
+            </div>
+
+            <div class="industry">
+
+                <span class="industry-number">06</span>
+
+                <h3>
+                    Technology
+                </h3>
+
+                <p>
+                    Product and first-level technical
+                    support operations.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     FINANCIAL / TRADING
+========================= -->
+
+<section class="dark reveal">
+
+    <div class="container">
+
+        <div class="split">
+
+            <div>
+
+                <span
+                    class="eyebrow"
+                    style="color:#aaaaaa">
+
+                    FINANCIAL & TRADING SUPPORT
+
+                </span>
+
+                <h2>
+                    Fast, accurate and
+                    professional assistance.
+                </h2>
+
+                <p>
+                    Xoro can build customer-support workflows
+                    around your approved processes, escalation
+                    rules and service standards.
+                </p>
+
+            </div>
+
+            <div class="flow">
+
+                <span>Customer Query</span>
+
+                <b>→</b>
+
+                <span>Verification</span>
+
+                <b>→</b>
+
+                <span>Resolution</span>
+
+                <b>→</b>
+
+                <span>Quality</span>
+
+                <b>→</b>
+
+                <span>Closure</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     PROCESS
+========================= -->
+
+<section class="section reveal" id="process">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                HOW WE WORK
+            </span>
+
+            <h2>
+                A simple process.
+                Built to scale.
+            </h2>
+
+        </div>
+
+        <div class="steps">
+
+            <div class="step">
+
+                <strong>01</strong>
+
+                <h3>Understand</h3>
+
+                <p>
+                    Learn your business, customers
+                    and requirements.
+                </p>
+
+            </div>
+
+            <div class="step">
+
+                <strong>02</strong>
+
+                <h3>Design</h3>
+
+                <p>
+                    Map workflows, tools, SLAs
+                    and escalation paths.
+                </p>
+
+            </div>
+
+            <div class="step">
+
+                <strong>03</strong>
+
+                <h3>Train</h3>
+
+                <p>
+                    Train teams on approved products
+                    and processes.
+                </p>
+
+            </div>
+
+            <div class="step">
+
+                <strong>04</strong>
+
+                <h3>Launch</h3>
+
+                <p>
+                    Start operations with defined
+                    quality and reporting.
+                </p>
+
+            </div>
+
+            <div class="step">
+
+                <strong>05</strong>
+
+                <h3>Monitor</h3>
+
+                <p>
+                    Review KPIs, quality and
+                    customer feedback.
+                </p>
+
+            </div>
+
+            <div class="step">
+
+                <strong>06</strong>
+
+                <h3>Improve</h3>
+
+                <p>
+                    Optimize operations as
+                    requirements evolve.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     OPERATING MODEL
+========================= -->
+
+<section class="section soft reveal">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                OPERATING MODEL
+            </span>
+
+            <h2>
+                Flexible. Reliable. Scalable.
+            </h2>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-icon">🏢</div>
+
+                <h3>
+                    Work From Office
+                </h3>
+
+                <p>
+                    Dedicated Bengaluru-based teams
+                    operating from a controlled environment.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-icon">🏠</div>
+
+                <h3>
+                    Work From Home
+                </h3>
+
+                <p>
+                    Remote teams designed for
+                    flexible operational capacity.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-icon">🔄</div>
+
+                <h3>
+                    Hybrid
+                </h3>
+
+                <p>
+                    A combination of office and
+                    remote delivery based on requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     CAREERS
+========================= -->
+
+<section class="section reveal" id="careers">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                CAREERS AT XORO
+            </span>
+
+            <h2>
+                Build your career with Xoro.
+            </h2>
+
+            <p>
+                Explore an opportunity and apply directly.
+            </p>
+
+        </div>
+
+        <div class="jobs">
+
+            <div class="job">
+
+                <h3>
+                    Customer Support Executive
+                </h3>
+
+                <div class="job-meta">
+                    Customer Operations • Bengaluru / Remote*
+                </div>
+
+                <p>
+                    Handle customer queries, follow approved
+                    processes and resolve or escalate issues.
+                </p>
+
+                <button
+                    class="btn btn-primary"
+                    onclick="openJob('Customer Support Executive')">
+
+                    View Job & Apply →
+
+                </button>
+
+            </div>
+
+            <div class="job">
+
+                <h3>
+                    Chat Support Executive
+                </h3>
+
+                <div class="job-meta">
+                    Digital Support • Bengaluru / Remote*
+                </div>
+
+                <p>
+                    Support customers through chat,
+                    tickets and written communication.
+                </p>
+
+                <button
+                    class="btn btn-primary"
+                    onclick="openJob('Chat Support Executive')">
+
+                    View Job & Apply →
+
+                </button>
+
+            </div>
+
+            <div class="job">
+
+                <h3>
+                    Back Office Executive
+                </h3>
+
+                <div class="job-meta">
+                    Operations • Bengaluru / Remote*
+                </div>
+
+                <p>
+                    Process documentation, data and
+                    operational workflows accurately.
+                </p>
+
+                <button
+                    class="btn btn-primary"
+                    onclick="openJob('Back Office Executive')">
+
+                    View Job & Apply →
+
+                </button>
+
+            </div>
+
+            <div class="job">
+
+                <h3>
+                    Quality Analyst
+                </h3>
+
+                <div class="job-meta">
+                    Quality • Bengaluru
+                </div>
+
+                <p>
+                    Monitor interactions, evaluate quality
+                    and support coaching initiatives.
+                </p>
+
+                <button
+                    class="btn btn-primary"
+                    onclick="openJob('Quality Analyst')">
+
+                    View Job & Apply →
+
+                </button>
+
+            </div>
+
+            <div class="job">
+
+                <h3>
+                    Team Leader
+                </h3>
+
+                <div class="job-meta">
+                    Operations • Bengaluru
+                </div>
+
+                <p>
+                    Lead teams, monitor performance and
+                    coordinate daily operations.
+                </p>
+
+                <button
+                    class="btn btn-primary"
+                    onclick="openJob('Team Leader')">
+
+                    View Job & Apply →
+
+                </button>
+
+            </div>
+
+            <div class="job">
+
+                <h3>
+                    Work From Home Opportunities
+                </h3>
+
+                <div class="job-meta">
+                    Remote • Subject to vacancy
+                </div>
+
+                <p>
+                    Remote opportunities may be available
+                    depending on actual vacancies.
+                </p>
+
+                <button
+                    class="btn btn-primary"
+                    onclick="openJob('Work From Home Opportunity')">
+
+                    View Job & Apply →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="section soft reveal" id="contact">
+
+    <div class="container contact-grid">
+
+        <div>
+
+            <span class="eyebrow">
+                CONTACT XORO
+            </span>
+
+            <h2>
+                Let's build your
+                customer operation.
+            </h2>
+
+            <p style="color:var(--muted);margin-top:15px;">
+                Tell us what your business needs and
+                start a conversation with Xoro.
+            </p>
+
+            <div class="contact-info">
+
+                <b>Email</b>
+
+                <a href="mailto:vikashdas33@gmail.com">
+                    vikashdas33@gmail.com
+                </a>
+
+                <b>Location</b>
+
+                <span>
+                    Cyber City, Bengaluru,
+                    Karnataka, India
+                </span>
+
+            </div>
+
+        </div>
+
+        <form class="form" id="businessForm">
+
+            <input
+                type="hidden"
+                name="formType"
+                value="Business Enquiry">
+
+            <label>
+                Name
+
+                <input
+                    required
+                    name="name"
+                    placeholder="Your name">
+            </label>
+
+            <label>
+                Company
+
+                <input
+                    name="company"
+                    placeholder="Company name">
+            </label>
+
+            <label>
+                Work Email
+
+                <input
+                    required
+                    type="email"
+                    name="email"
+                    autocomplete="email"
+                    placeholder="you@company.com">
+            </label>
+
+            <label>
+                Phone
+
+                <input
+                    name="phone"
+                    placeholder="+91">
+            </label>
+
+            <label>
+                Industry
+
+                <select name="industry">
+
+                    <option>
+                        Trading / Stock Broking
+                    </option>
+
+                    <option>
+                        Fintech
+                    </option>
+
+                    <option>
+                        Banking / Payments
+                    </option>
+
+                    <option>
+                        Insurance
+                    </option>
+
+                    <option>
+                        E-commerce
+                    </option>
+
+                    <option>
+                        Technology
+                    </option>
+
+                    <option>
+                        Other
+                    </option>
+
+                </select>
+
+            </label>
+
+            <label>
+                Service Required
+
+                <select name="service">
+
+                    <option>
+                        Customer Support
+                    </option>
+
+                    <option>
+                        Chat & Email Support
+                    </option>
+
+                    <option>
+                        Back Office
+                    </option>
+
+                    <option>
+                        Technical Support
+                    </option>
+
+                    <option>
+                        Customer Onboarding
+                    </option>
+
+                    <option>
+                        Remote Workforce
+                    </option>
+
+                </select>
+
+            </label>
+
+            <label>
+                Team Size
+
+                <input
+                    name="teamSize"
+                    placeholder="e.g. 5 / 20 / 50+">
+            </label>
+
+            <label>
+                Operating Model
+
+                <select name="model">
+
+                    <option>
+                        Work From Office
+                    </option>
+
+                    <option>
+                        Work From Home
+                    </option>
+
+                    <option>
+                        Hybrid
+                    </option>
+
+                    <option>
+                        Not Sure Yet
+                    </option>
+
+                </select>
+
+            </label>
+
+            <label class="full">
+
+                Requirement
+
+                <textarea
+                    required
+                    name="message"
+                    rows="6"
+                    placeholder="Tell us about your requirements..."></textarea>
+
+            </label>
+
+            <button
+                class="btn btn-primary full"
+                type="submit">
+
+                Prepare Business Enquiry →
+
+            </button>
+
+            <p class="full" data-submit-message aria-live="polite" hidden></p>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+
+            <div class="footer-logo">
+                XORO<span>.</span>
+            </div>
+
+            <p style="font-size:12px;margin-top:10px;">
+                Customer Experience.
+                Powered by People.
+                Built for Business.
+            </p>
+
+        </div>
+
+        <div class="footer-col">
+
+            <b>Company</b>
+
+            <a href="#about">About</a>
+
+            <a href="#services">Services</a>
+
+            <a href="#industries">Industries</a>
+
+            <a href="#careers">Careers</a>
+
+        </div>
+
+        <div class="footer-col">
+
+            <b>Services</b>
+
+            <a href="#services">
+                Customer Support
+            </a>
+
+            <a href="#services">
+                Chat & Email
+            </a>
+
+            <a href="#services">
+                Back Office
+            </a>
+
+            <a href="#services">
+                Technical Support
+            </a>
+
+        </div>
+
+        <div class="footer-col">
+
+            <b>Contact</b>
+
+            <a href="mailto:vikashdas33@gmail.com">
+                vikashdas33@gmail.com
+            </a>
+
+            <span>
+                Cyber City, Bengaluru
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+
+        <span>
+            © 2026 Xoro Telecom Services.
+            All rights reserved.
+        </span>
+
+        <span>
+            Customer Experience • Business Process Services
+        </span>
+
+    </div>
+
+</footer>
+
+<!-- =====================================================
+     SERVICE MODAL
+===================================================== -->
+
+<div class="modal" id="serviceModal">
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeModal('serviceModal')">
+            ×
+        </button>
+
+        <span class="eyebrow">
+            XORO SERVICES
+        </span>
+
+        <h2 id="serviceTitle">
+            Customer Support
+        </h2>
+
+        <p id="serviceDescription"></p>
+
+        <div class="modal-content">
+
+            <h3>
+                What we can provide
+            </h3>
+
+            <ul
+                class="detail-list"
+                id="serviceList">
+            </ul>
+
+            <a
+                href="#contact"
+                class="btn btn-primary"
+                onclick="closeModal('serviceModal')">
+
+                Request This Service →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     CAREER MODAL
+===================================================== -->
+
+<div class="modal" id="jobModal">
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeModal('jobModal')">
+            ×
+        </button>
+
+        <span class="eyebrow">
+            CAREERS AT XORO
+        </span>
+
+        <h2 id="jobTitle">
+            Job Position
+        </h2>
+
+        <p>
+            Bengaluru / Remote*
+            • Full Time
+        </p>
+
+        <div class="modal-content">
+
+            <h3>
+                About the role
+            </h3>
+
+            <p>
+                Join Xoro and become part of a customer
+                operations team focused on professional,
+                reliable and process-driven service.
+            </p>
+
+            <br>
+
+            <h3>
+                Application Form
+            </h3>
+
+            <form class="form" id="careerForm">
+
+                <input
+                    type="hidden"
+                    name="formType"
+                    value="Job Application">
+
+                <input
+                    type="hidden"
+                    id="selectedJob"
+                    name="position">
+
+                <label>
+                    Full Name
+
+                    <input
+                        required
+                        name="name"
+                        placeholder="Your full name">
+                </label>
+
+                <label>
+                    Email
+
+                    <input
+                        required
+                        type="email"
+                        name="email"
+                        autocomplete="email"
+                        placeholder="Your email">
+                </label>
+
+                <label>
+                    Phone
+
+                    <input
+                        required
+                        name="phone"
+                        placeholder="+91">
+                </label>
+
+                <label>
+                    City
+
+                    <input
+                        name="city"
+                        placeholder="Your city">
+                </label>
+
+                <label>
+                    Experience
+
+                    <input
+                        name="experience"
+                        placeholder="Fresher / 1 year / 2 years">
+                </label>
+
+                <label>
+                    Education
+
+                    <input
+                        name="education"
+                        placeholder="Highest qualification">
+                </label>
+
+                <label class="full">
+                    Resume / Portfolio Link
+
+                    <input
+                        name="resume"
+                        placeholder="Google Drive / LinkedIn / Portfolio link">
+                </label>
+
+                <label>
+                    Preferred Work Model
+
+                    <select name="model">
+
+                        <option>
+                            Work From Office
+                        </option>
+
+                        <option>
+                            Work From Home
+                        </option>
+
+                        <option>
+                            Hybrid
+                        </option>
+
+                    </select>
+
+                </label>
+
+                <label>
+                    Position
+
+                    <input
+                        id="jobPositionDisplay"
+                        readonly>
+                </label>
+
+                <label class="full">
+
+                    Tell us about yourself
+
+                    <textarea
+                        required
+                        name="message"
+                        rows="5"
+                        placeholder="Write a short introduction..."></textarea>
+
+                </label>
+
+                <button
+                    class="btn btn-primary full"
+                    type="submit">
+
+                    Submit Application →
+
+                </button>
+
+                <p class="full" data-submit-message aria-live="polite" hidden></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/form-submissions.js"></script>
+<script>
+
+/* =========================================================
+   XORO WEBSITE JAVASCRIPT
+========================================================= */
+
+/* =========================
+   PAGE LOADER
+========================= */
+
+window.addEventListener("load",function(){
+
+    setTimeout(function(){
+
+        const loader=document.getElementById("loader");
+
+        loader.style.opacity="0";
+
+        setTimeout(function(){
+            loader.style.display="none";
+        },600);
+
+    },900);
+
+});
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuButton=document.getElementById("menuButton");
+
+const navbar=document.querySelector(".navbar");
+
+menuButton.addEventListener("click",function(){
+
+    navbar.classList.toggle("open");
+
+});
+
+document.querySelectorAll(".nav-links a").forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        navbar.classList.remove("open");
+
+    });
+
+});
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
+const observer=new IntersectionObserver(
+
+    function(entries){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("visible");
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.12
+    }
+
+);
+
+document.querySelectorAll(".reveal").forEach(function(element){
+
+    observer.observe(element);
+
+});
+
+/* =========================================================
+   SERVICE DATA
+========================================================= */
+
+const services={
+
+    customer:{
+
+        title:"Customer Support",
+
+        description:
+        "Professional customer service operations designed around your approved processes, communication standards and escalation requirements.",
+
+        items:[
+            "Customer queries",
+            "Product and service assistance",
+            "Complaint handling",
+            "Issue resolution",
+            "Escalation management",
+            "Customer follow-ups",
+            "Ticket closure",
+            "Quality monitoring"
+        ]
+
+    },
+
+    chat:{
+
+        title:"Chat & Email Support",
+
+        description:
+        "Non-voice customer operations for businesses that want reliable digital support through chat, email and ticketing.",
+
+        items:[
+            "Live chat support",
+            "Email support",
+            "Ticket management",
+            "Response management",
+            "Customer follow-ups",
+            "Knowledge-base workflows",
+            "Escalation management",
+            "Quality checks"
+        ]
+
+    },
+
+    backoffice:{
+
+        title:"Back-Office Operations",
+
+        description:
+        "Structured operational support that helps businesses manage work behind the customer experience.",
+
+        items:[
+            "Data processing",
+            "Documentation",
+            "Verification workflows",
+            "Account support",
+            "Ticket processing",
+            "Reporting",
+            "Administrative operations",
+            "Quality control"
+        ]
+
+    },
+
+    technical:{
+
+        title:"Technical Support",
+
+        description:
+        "First-level technical assistance for customers using digital products, applications and platforms.",
+
+        items:[
+            "Login assistance",
+            "Platform navigation",
+            "Product assistance",
+            "Basic troubleshooting",
+            "Issue identification",
+            "Ticket creation",
+            "Technical escalation",
+            "Resolution follow-up"
+        ]
+
+    },
+
+    onboarding:{
+
+        title:"Customer Onboarding",
+
+        description:
+        "Structured onboarding assistance designed to make the customer journey clearer and more efficient.",
+
+        items:[
+            "Customer communication",
+            "Documentation guidance",
+            "Verification workflow support",
+            "Activation assistance",
+            "Follow-up",
+            "Status communication",
+            "Issue escalation",
+            "Onboarding support"
+        ]
+
+    },
+
+    remote:{
+
+        title:"Remote Workforce",
+
+        description:
+        "Flexible workforce solutions combining work-from-office, work-from-home and hybrid delivery models.",
+
+        items:[
+            "Work From Office teams",
+            "Work From Home teams",
+            "Hybrid teams",
+            "Flexible staffing",
+            "Team scaling",
+            "Training",
+            "Quality monitoring",
+            "Operational reporting"
+        ]
+
+    }
+
+};
+
+/* =========================
+   OPEN SERVICE
+========================= */
+
+function openService(serviceKey){
+
+    const service=services[serviceKey];
+
+    if(!service)return;
+
+    document.getElementById("serviceTitle").textContent=
+        service.title;
+
+    document.getElementById("serviceDescription").textContent=
+        service.description;
+
+    const list=document.getElementById("serviceList");
+
+    list.innerHTML="";
+
+    service.items.forEach(function(item){
+
+        const li=document.createElement("li");
+
+        li.textContent=item;
+
+        list.appendChild(li);
+
+    });
+
+    document
+        .getElementById("serviceModal")
+        .classList.add("active");
+
+}
+
+/* =========================
+   JOB OPEN
+========================= */
+
+function openJob(position){
+
+    document
+        .getElementById("jobTitle")
+        .textContent=position;
+
+    document
+        .getElementById("selectedJob")
+        .value=position;
+
+    document
+        .getElementById("jobPositionDisplay")
+        .value=position;
+
+    document
+        .getElementById("jobModal")
+        .classList.add("active");
+
+}
+
+/* =========================
+   CLOSE MODAL
+========================= */
+
+function closeModal(id){
+
+    document
+        .getElementById(id)
+        .classList.remove("active");
+
+}
+
+/* =========================
+   CLOSE MODAL
+   CLICK OUTSIDE
+========================= */
+
+document.querySelectorAll(".modal").forEach(function(modal){
+
+    modal.addEventListener("click",function(event){
+
+        if(event.target===modal){
+
+            modal.classList.remove("active");
+
+        }
+
+    });
+
+});
+
+/* =========================
+   ESC KEY
+========================= */
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape"){
+
+        document.querySelectorAll(".modal").forEach(function(modal){
+
+            modal.classList.remove("active");
+
+        });
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
